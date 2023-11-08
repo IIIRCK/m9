@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js">
-        let img = document.querySelector(".img1");
 
-    </script>
 
 
 </head>
 <body>
 
-<div >
-    <img class="img1" src="./img/nv.png" alt="">
-    <img class="img2" src="./img/nv.png" alt="">
+<div class="cont" >
+    <div class="back"></div>
+    <img src="./img/p3_marco.png" alt="" class="marco">
+    <img src="./img/p3.png" alt="" class="baba">
+    <img src="./img/p3_bll.png" alt="" class="ball">
 </div>
-<script src="./simpleParallax.js-master/src/simpleParallax.js"></script>
+
+
+<script type="text/javascript">
+const cont = document.querySelector(".cont");
+const marco = document.querySelector(".marco");
+const back = document.querySelector(".back");
+const baba = document.querySelector(".baba ");
+const ball = document.querySelector(".ball");
+cont.addEventListener("mousemove",(rotate)=>{
+    let x = (innerWidth / 2 -rotate.pageX) / 50;
+    let y = (innerHeight / 2 - rotate.pageY) / 100;
+
+    baba.style.transform = `translate(${x*5}px, ${y*5}px)`;
+    marco.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)";
+    ball.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)";
+    cont.style.transform = "scale(0.60)";
+
+
+})
+
+
+</script>
 </body>
 </html>
