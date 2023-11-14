@@ -8,35 +8,63 @@
 
 
 </head>
-<body>
+<body class="body">
 
 <div class="cont" >
     <div class="back"></div>
     <img src="./img/p3_marco.png" alt="" class="marco">
     <img src="./img/p3.png" alt="" class="baba">
-    <img src="./img/p3_bll.png" alt="" class="ball">
+    <div class="all_ball">
+
+            <form action="" class="respuestas">
+                <button onclick=respuesta(event)>SI</button>
+                <button onclick=respuesta(event)>Talvez</button>
+                <button onclick=respuesta(event)>No lo se</button>
+                <button onclick=respuesta(event)>NO</button>
+
+            </form>
+
+        <div class="res_img">
+            <button></button>
+        </div>
+
+    </div>
+    <img src="./img/base.png" alt="" class="base">
+    <div class="dialogo">
+    <h1>Quieres Jugar?</h1>
+    </div>
 </div>
 
 
 <script type="text/javascript">
 const cont = document.querySelector(".cont");
+const body = document.querySelector(".body");
 const marco = document.querySelector(".marco");
 const back = document.querySelector(".back");
 const baba = document.querySelector(".baba ");
-const ball = document.querySelector(".ball");
-cont.addEventListener("mousemove",(rotate)=>{
-    let x = (innerWidth / 2 -rotate.pageX) / 50;
-    let y = (innerHeight / 2 - rotate.pageY) / 100;
+const ball = document.querySelector(".all_ball");
+const base = document.querySelector(".base");
+const dialog = document.querySelector(".dialogo");
+body.addEventListener("mousemove",(rotate)=>{
+    let x = (innerWidth / 2 -rotate.pageX) / 100;
+    let y = (innerHeight / 2 - rotate.pageY) / 250;
+    ball.style.transform = `translate(${x}px, ${y*10}px)`;
+    base.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)";
+    baba.style.transform = `translate(${x*5}px, ${y*8}px)`;
+    marco.style.transform = "rotateY(" + x + "deg) rotateX(" + y+ "deg)";
+    dialog.style.transform = `translate(${x*5}px, ${y*8}px)`;
 
-    baba.style.transform = `translate(${x*5}px, ${y*5}px)`;
-    marco.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)";
-    ball.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)";
-    cont.style.transform = "scale(0.60)";
 
 
 })
 
+cont.style.transform = "scale(0.60)";
 
+
+function  respuesta(e){
+    e.preventDefault();
+    console.log("s")
+}
 </script>
 </body>
 </html>
