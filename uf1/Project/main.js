@@ -37,11 +37,9 @@ let cs = 1
 function gsd() {
     const cst = document.documentElement.scrollTop;
     if (cst > lst) {
-        if (cs < 3){
-
-        }
+        console.log('up')
     } else if (cst < lst) {
-        
+        console.log('down')
     } else {
         console.log('No hay desplazamiento');
     }
